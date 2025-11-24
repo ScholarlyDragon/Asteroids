@@ -19,17 +19,22 @@ def main():
     x = SCREEN_WIDTH / 2 
     y = SCREEN_HEIGHT / 2
     player1 = Player(x, y)
-    
-    #game loop
+
+    # infinite game loop
     while True:
         log_state()
+        # make the "X" button work
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        # draw everything
         screen.fill("black")
         player1.draw(screen)
-        pygame.display.flip()
+        # limit frame rate
         dt = clock.tick(60) / 1000
+        # show the frame
+        pygame.display.flip()
+        
 
 
 if __name__ == "__main__":
